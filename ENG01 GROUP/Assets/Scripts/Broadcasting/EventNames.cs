@@ -53,9 +53,16 @@ public class EventNames {
 
 	public class SpawnSystem
 	{
+		//SPHERE SPAWNING
 		public const string ON_SPHERE_SPAWN = "ON_SPHERE_SPAWN";
 		public const string ON_SPHERE_DESPAWN = "ON_SPHERE_DESPAWN";
 
+		//CUBE SPAWNING
+        public const string ON_CUBE_SPAWN_BUTTON_CLICKED = "ON_CUBE_SPAWN_BUTTON_CLICKED";
+        public const string ON_CUBE_DESPAWN_BUTTON_CLICKED = "ON_CUBE_DESPAWN_BUTTON_CLICKED";
+
+		//DESPAWNING
+        public const string ON_DESPAWN_BUTTON_CLICKED = "ON_DESPAWN_BUTTON_CLICKED";
     }
 }
 
