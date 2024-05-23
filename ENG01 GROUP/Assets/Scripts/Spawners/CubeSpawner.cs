@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CubeSpawner : MonoBehaviour
@@ -41,5 +42,8 @@ public class CubeSpawner : MonoBehaviour
         {
             GameObject.Destroy(this.CubeList[i].gameObject);
         }
+        this.CubeList.Clear();
     }
+
+    
 }
