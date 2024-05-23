@@ -16,12 +16,14 @@ public class SphereSpawner : MonoBehaviour
         this.templateObj.SetActive(false);
         EventBroadcaster.Instance.AddObserver(EventNames.SpawnSystem.ON_SPHERE_SPAWN, this.spawnSphere);
         EventBroadcaster.Instance.AddObserver(EventNames.SpawnSystem.ON_SPHERE_DESPAWN, this.destroyAllSpheres);
+        EventBroadcaster.Instance.AddObserver(EventNames.SpawnSystem.ON_DESPAWN_BUTTON_CLICKED, this.destroyAllSpheres);
     }
 
     private void OnDestroy()
     {
         EventBroadcaster.Instance.RemoveObserver(EventNames.SpawnSystem.ON_SPHERE_SPAWN);
         EventBroadcaster.Instance.RemoveObserver(EventNames.SpawnSystem.ON_SPHERE_DESPAWN);
+        EventBroadcaster.Instance.RemoveObserver(EventNames.SpawnSystem.ON_DESPAWN_BUTTON_CLICKED);
     }
 
     // Update is called once per frame
