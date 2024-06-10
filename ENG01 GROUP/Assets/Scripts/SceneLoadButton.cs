@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoadButton : MonoBehaviour
 {
     public void OnStartButtonClicked() {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("RootsFear");
     }
 
     public void OnMainMenuButtonClicked() {
