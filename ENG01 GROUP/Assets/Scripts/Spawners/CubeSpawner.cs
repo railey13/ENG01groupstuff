@@ -36,7 +36,7 @@ public class CubeSpawner : MonoBehaviour
         int SpawnAmount = parameters.GetIntExtra(NUM_SPAWN_KEYS, 1);
         for (int i = 0; i < SpawnAmount; i++)
         {
-            CubeList.Add(ObjectUtils.SpawnDefault(this.Cube, this.transform, this.transform.localPosition));
+            CubeList.Add(ObjectUtils.SpawnDefault(this.Cube, this.transform, this.Cube.transform.localPosition));
         }
         
     }
