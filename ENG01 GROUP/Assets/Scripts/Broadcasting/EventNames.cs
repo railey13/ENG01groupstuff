@@ -77,6 +77,13 @@ public class EventNames {
 		public const string MOVE_TO_CHISEL = "MOVE_TO_CHISEL";
 		public const string MOVE_TO_HAMMER = "MOVE_TO_HAMMER";
     }
+
+	public class PoolSample {
+
+		public const string ON_REQUEST_POOL_PUSHED = "ON_REQUEST_POOL_PUSHED";
+        public const string ON_RELEASE_POOL_PUSHED = "ON_RELEASE_POOL_PUSHED";
+
+    }
 }
 
 
