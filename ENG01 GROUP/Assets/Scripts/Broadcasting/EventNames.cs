@@ -64,6 +64,19 @@ public class EventNames {
 		//DESPAWNING
         public const string ON_DESPAWN_BUTTON_CLICKED = "ON_DESPAWN_BUTTON_CLICKED";
     }
+
+	public class RootsFear
+	{
+		//successfull ice
+		public const string ON_ICE_SUCCESS = "ON_ICE_SUCCESS";
+
+        //fail ice
+        public const string ON_ICE_FAIL = "ON_ICE_FAIL";
+
+		//moving the ice
+		public const string MOVE_TO_CHISEL = "MOVE_TO_CHISEL";
+		public const string MOVE_TO_HAMMER = "MOVE_TO_HAMMER";
+    }
 }
 
 
