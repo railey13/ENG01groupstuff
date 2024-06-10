@@ -15,6 +15,8 @@ public class PersonMoodHandler : MonoBehaviour
     [SerializeField] private GameObject Face;
 
     private Renderer faceRenderer;
+    private bool isLeaving = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,10 @@ public class PersonMoodHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isLeaving)
+        {
+
+        }
     }
     private void OnDestroy()
     {
@@ -52,6 +57,8 @@ public class PersonMoodHandler : MonoBehaviour
                 faceRenderer.material = MadFace;
                 break;
         }
+
+        if (this.patience > 0)
         this.patience--;
     }
 
