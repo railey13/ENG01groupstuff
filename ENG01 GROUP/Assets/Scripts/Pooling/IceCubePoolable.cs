@@ -10,6 +10,10 @@ public class IceCubePoolable : APoolable {
     private bool release = false;
 
     private int IceCubeValue;
+    public int IceCubeNum {
+        get { return this.IceCubeValue; }
+    }
+
     private void Awake() {
         this.originPos = this.transform.position;
 
