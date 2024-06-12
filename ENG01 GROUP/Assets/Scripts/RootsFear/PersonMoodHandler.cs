@@ -19,6 +19,10 @@ public class PersonMoodHandler : MonoBehaviour
 
     [SerializeField] private GameObject Face;
 
+    //AUDIO
+    [SerializeField] private AudioSource HappySound;
+    [SerializeField] private AudioSource AnnoyedSound;
+
     private Renderer faceRenderer;
 
     private bool isLeaving = false;
@@ -76,6 +80,7 @@ public class PersonMoodHandler : MonoBehaviour
 
     private void GetAnnoyed()
     {
+        this.AnnoyedSound.Play();
         switch (this.patience)
         {
             case 3:
@@ -101,6 +106,7 @@ public class PersonMoodHandler : MonoBehaviour
 
     private void GetSatisfied()
     {
+        this.HappySound.Play();
         faceRenderer.material = HappyFace;
         this.isLeaving = true;
         this.patience = 3;
