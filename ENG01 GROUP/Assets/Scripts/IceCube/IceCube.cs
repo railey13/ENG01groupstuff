@@ -20,9 +20,10 @@ public class IceCube : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other == this.plane) {
             IceCubePoolable ice = GetComponent<IceCubePoolable>();
-            
-            if(Mathf.Sqrt(ice.IceCubeNum) == 0) {
+
+            if(Mathf.Sqrt(ice.IceCubeNum) % 1 == 0) {
                 EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.ON_RELEASE_POOL_PUSHED);
+                Debug.Log("Perfect");
             }
         }
     }

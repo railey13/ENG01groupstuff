@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IceCubePoolable : APoolable {
@@ -9,9 +11,17 @@ public class IceCubePoolable : APoolable {
     private Vector3 originPos;
     private bool release = false;
 
+    private int ValueChance;
     private int IceCubeValue;
+
+    private List<int> listPerfectSquares = new List<int>();
     public int IceCubeNum {
         get { return this.IceCubeValue; }
+    }
+    private void Start() {
+        for (int i = 1; i <= 20; i++) {
+            this.listPerfectSquares.Add((int)Math.Pow(i, 2));
+        }
     }
 
     private void Awake() {
@@ -39,7 +49,7 @@ public class IceCubePoolable : APoolable {
         this.icecubeRB.transform.rotation = Quaternion.identity;
         this.transform.localPosition = this.originPos;
 
-        this.IceCubeValue = Random.Range(1, 400);
+        this.IceCubeValueRandomizer();
 
         GameObject _canvas = this.GetComponentInChildren<Canvas>().gameObject;
 
@@ -56,6 +66,17 @@ public class IceCubePoolable : APoolable {
         BoxCollider plane = other.GetComponent<BoxCollider>();
         if(plane != null) {
             this.poolRef.ReleasePoolable(this);
+        }
+    }
+
+    private void IceCubeValueRandomizer() {
+        this.ValueChance = UnityEngine.Random.Range(1, 5);
+
+        if(this.ValueChance == 1) {
+            this.IceCubeValue = this.listPerfectSquares[UnityEngine.Random.Range(0, this.listPerfectSquares.Count)];
+        }
+        else {
+            this.IceCubeValue = UnityEngine.Random.Range(1, 400);
         }
     }
 }
