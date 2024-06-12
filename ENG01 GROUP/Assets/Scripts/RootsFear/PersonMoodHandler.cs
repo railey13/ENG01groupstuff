@@ -99,6 +99,7 @@ public class PersonMoodHandler : MonoBehaviour
         
         if (this.patience <= 0)
         {
+            EventBroadcaster.Instance.PostEvent(EventNames.RootsFear.ON_CUSTOMER_MAD);
             this.isLeaving = true;
             this.patience = 3;
         }

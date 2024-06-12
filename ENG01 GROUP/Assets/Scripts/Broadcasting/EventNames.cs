@@ -73,8 +73,11 @@ public class EventNames {
         //fail ice
         public const string ON_ICE_FAIL = "ON_ICE_FAIL";
 
-		//moving the ice
-		public const string MOVE_TO_CHISEL = "MOVE_TO_CHISEL";
+        //when customer gets mad
+        public const string ON_CUSTOMER_MAD = "ON_CUSTOMER_MAD";
+
+        //moving the ice
+        public const string MOVE_TO_CHISEL = "MOVE_TO_CHISEL";
 		public const string MOVE_TO_HAMMER = "MOVE_TO_HAMMER";
     }
 

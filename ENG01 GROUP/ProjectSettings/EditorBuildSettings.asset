@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RootsFear.unity
     guid: 13eaf7bc2f04ab54ab53639ef28f67f6
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: ba2ecd7499e99fe438892066fd12e676
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
