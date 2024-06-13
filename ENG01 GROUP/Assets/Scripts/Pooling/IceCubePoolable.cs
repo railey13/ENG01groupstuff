@@ -9,6 +9,7 @@ public class IceCubePoolable : APoolable {
     [SerializeField] private Rigidbody icecubeRB;
 
     private Vector3 originPos;
+
     private bool release = false;
 
     private int ValueChance;
@@ -18,12 +19,6 @@ public class IceCubePoolable : APoolable {
     public int IceCubeNum {
         get { return this.IceCubeValue; }
     }
-    private void Start() {
-        for (int i = 1; i <= 20; i++) {
-            this.listPerfectSquares.Add((int)Math.Pow(i, 2));
-        }
-    }
-
     private void Awake() {
         this.originPos = this.transform.position;
 
@@ -57,7 +52,6 @@ public class IceCubePoolable : APoolable {
             _canvas.GetComponentInChildren<TextMeshProUGUI>().text = this.IceCubeValue.ToString();
         }
     }
-
     public override void Release() {
         this.icecubeRB.velocity = Vector3.zero;
     }
@@ -70,10 +64,17 @@ public class IceCubePoolable : APoolable {
     }
 
     private void IceCubeValueRandomizer() {
+        for (int i = 0; i < 20; i++) {
+            this.listPerfectSquares.Add((int)Math.Pow(i + 1, 2));
+            Debug.Log("Added");
+        }
+
         this.ValueChance = UnityEngine.Random.Range(1, 5);
 
         if(this.ValueChance == 1) {
-            this.IceCubeValue = this.listPerfectSquares[UnityEngine.Random.Range(0, this.listPerfectSquares.Count)];
+            int i = UnityEngine.Random.Range(0, this.listPerfectSquares.Count);
+            Debug.Log(this.listPerfectSquares.Count);
+            this.IceCubeValue = this.listPerfectSquares[i];
         }
         else {
             this.IceCubeValue = UnityEngine.Random.Range(1, 400);

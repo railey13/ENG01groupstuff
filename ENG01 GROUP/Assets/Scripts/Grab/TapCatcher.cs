@@ -35,8 +35,10 @@ public class TapCatcher : MonoBehaviour
             
             
 
-
-            return true;
+            if(hitObject == this.gameObject) {
+                return true;
+            }
+           
             // Actual movement
             
         }
@@ -52,7 +54,7 @@ public class TapCatcher : MonoBehaviour
             if (CheckHit(tap))
             {
                 body.useGravity = false;
-                this.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+                this.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 15));
             }
             else // this is here because i found a...bug? glitch? that when snapping out of the box it keeps floating
             {

@@ -10,6 +10,14 @@ public class IceCubeManager : MonoBehaviour
     {
         this.iceCubePool.Initialize();
         EventBroadcaster.Instance.AddObserver(EventNames.PoolSample.ON_REQUEST_POOL_PUSHED, this.RequestPoolable);
+
+        this.StartCoroutine(this.TriggerEvery(1));
+    }
+    private IEnumerator TriggerEvery(float sec) {
+        yield return new WaitForSeconds(sec);
+        this.RequestPoolable();
+
+        this.StartCoroutine(this.TriggerEvery(2));
     }
 
     private void RequestPoolable() {
