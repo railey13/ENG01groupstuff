@@ -1101,12 +1101,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 814506411228296067, guid: 9074a58766b35da498b913225aedaa2e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1550291106588514793, guid: 9074a58766b35da498b913225aedaa2e, type: 3}
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
     - target: {fileID: 3811117096450569658, guid: 9074a58766b35da498b913225aedaa2e, type: 3}
       propertyPath: plane
+      value: 
+      objectReference: {fileID: 479298418}
+    - target: {fileID: 3811117096450569658, guid: 9074a58766b35da498b913225aedaa2e, type: 3}
+      propertyPath: _object
       value: 
       objectReference: {fileID: 479298418}
     - target: {fileID: 6481768721136084238, guid: 9074a58766b35da498b913225aedaa2e, type: 3}

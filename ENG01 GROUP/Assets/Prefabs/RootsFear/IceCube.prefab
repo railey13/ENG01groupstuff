@@ -15,15 +15,15 @@ GameObject:
   - component: {fileID: 814506411228296067}
   - component: {fileID: 1838703334343745148}
   - component: {fileID: 6883573392994087550}
-  - component: {fileID: 3811117096450569658}
   - component: {fileID: 4908114780134571603}
+  - component: {fileID: 5480550376545857779}
   m_Layer: 0
   m_Name: IceCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6481768721136084238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!222 &1838703334343745148
 CanvasRenderer:
@@ -165,19 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icecubeRB: {fileID: 814506411228296067}
---- !u!114 &3811117096450569658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550291106588514793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49c7cc64c32c7a4badca6e9930fb94b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plane: {fileID: 0}
 --- !u!114 &4908114780134571603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +177,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b574fe089f14bdc4eb3560f593661ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &5480550376545857779
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550291106588514793}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2410507461978275055
 GameObject:
   m_ObjectHideFlags: 0

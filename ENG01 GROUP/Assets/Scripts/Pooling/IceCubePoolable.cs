@@ -26,14 +26,19 @@ public class IceCubePoolable : APoolable {
     }
 
     private void ReleasePoolable() {
-        this.release = true;
+        
+        this.poolRef.ReleasePoolable(this);
     }
-
-    private void Update() {
-        if (this.release) {
-            this.poolRef.ReleasePoolable(this);
-            release = false;
+    
+    public void CheckValue() {
+        if (Mathf.Sqrt(this.IceCubeNum) % 1 == 0) {
+            
         }
+        else {
+
+        }
+
+        this.ReleasePoolable();
     }
 
     public override void Initialize() {
@@ -53,27 +58,19 @@ public class IceCubePoolable : APoolable {
         }
     }
     public override void Release() {
+        this.icecubeRB.angularVelocity = Vector3.zero;
         this.icecubeRB.velocity = Vector3.zero;
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        BoxCollider plane = other.GetComponent<BoxCollider>();
-        if(plane != null) {
-            this.poolRef.ReleasePoolable(this);
-        }
     }
 
     private void IceCubeValueRandomizer() {
         for (int i = 0; i < 20; i++) {
             this.listPerfectSquares.Add((int)Math.Pow(i + 1, 2));
-            Debug.Log("Added");
         }
 
         this.ValueChance = UnityEngine.Random.Range(1, 5);
 
         if(this.ValueChance == 1) {
             int i = UnityEngine.Random.Range(0, this.listPerfectSquares.Count);
-            Debug.Log(this.listPerfectSquares.Count);
             this.IceCubeValue = this.listPerfectSquares[i];
         }
         else {

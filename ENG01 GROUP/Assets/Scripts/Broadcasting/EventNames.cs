@@ -83,8 +83,13 @@ public class EventNames {
 
 	public class PoolSample {
 
+		//spawning of normal ice
 		public const string ON_REQUEST_POOL_PUSHED = "ON_REQUEST_POOL_PUSHED";
         public const string ON_RELEASE_POOL_PUSHED = "ON_RELEASE_POOL_PUSHED";
+
+        //spawning of ice cubes/shards
+        public const string SPAWN_PERFECT_ICE = "SPAWN_PERFECT_ICE";
+        public const string SPAWN_IMPERFECT_ICE = "SPAWN_IMPERFECT_ICE";
 
     }
 }
