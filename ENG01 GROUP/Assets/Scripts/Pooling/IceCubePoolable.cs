@@ -18,14 +18,8 @@ public class IceCubePoolable : APoolable {
     public int IceCubeNum {
         get { return this.IceCubeValue; }
     }
-    private void Start() {
-
-    }
-
     private void Awake() {
         this.originPos = this.transform.position;
-
-        EventBroadcaster.Instance.AddObserver(EventNames.PoolSample.ON_RELEASE_POOL_PUSHED, this.ReleasePoolable);
     }
 
     private void ReleasePoolable() {
@@ -75,6 +69,9 @@ public class IceCubePoolable : APoolable {
 
         this.icecubeRB.transform.rotation = Quaternion.identity;
         this.transform.localPosition = this.originPos;
+
+        Vector3 force = new Vector3(0, 20, 0);
+        this.icecubeRB.AddForce(force);
 
         this.IceCubeValueRandomizer();
 

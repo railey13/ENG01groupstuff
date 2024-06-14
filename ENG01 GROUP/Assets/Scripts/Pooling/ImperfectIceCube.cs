@@ -15,6 +15,10 @@ public class ImperfectIceCube : MonoBehaviour
         this.ImperfectIcePool.Initialize();
         EventBroadcaster.Instance.AddObserver(EventNames.PoolSample.SPAWN_IMPERFECT_ICE, this.RequestPoolable);
     }
+
+    private void OnDestroy() {
+        EventBroadcaster.Instance.RemoveObserver(EventNames.PoolSample.SPAWN_IMPERFECT_ICE);
+    }
     private void RequestPoolable(Parameters param) {
         this.condition = param.GetBoolExtra(CONDITION, false);
 
@@ -27,11 +31,6 @@ public class ImperfectIceCube : MonoBehaviour
             Debug.Log("FAIL");
             EventBroadcaster.Instance.PostEvent(EventNames.RootsFear.ON_ICE_FAIL);
         }
-        
-
-        //if (this.ImperfectIcePool.HasObjectAvailable(1)) {
-        //    this.ImperfectIcePool.RequestPoolable();
-        //}
     }
 
 }
