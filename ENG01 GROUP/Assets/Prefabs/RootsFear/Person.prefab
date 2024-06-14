@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 8589263319625077260}
   - component: {fileID: 1972058137720783911}
   - component: {fileID: 116394425721882793}
+  - component: {fileID: 7658643134233675656}
   m_Layer: 0
   m_Name: Person
   m_TagString: Untagged
@@ -372,6 +373,33 @@ MonoBehaviour:
   Face: {fileID: 4664760282904168337}
   HappySound: {fileID: 4537791706385840171}
   AnnoyedSound: {fileID: 7452878669848397161}
+--- !u!54 &7658643134233675656
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236163625121591454}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &7141659845900510720
 GameObject:
   m_ObjectHideFlags: 0
