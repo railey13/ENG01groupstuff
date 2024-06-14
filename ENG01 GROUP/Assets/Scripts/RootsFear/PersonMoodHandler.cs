@@ -28,7 +28,7 @@ public class PersonMoodHandler : MonoBehaviour
     private bool isLeaving = false;
     private bool isEntering = false;
 
-    private int patience = 3;
+    private int patience = 6;
 
     private Vector3 exitPos = Vector3.zero;
     private Vector3 entrancePos = Vector3.zero;
@@ -83,13 +83,13 @@ public class PersonMoodHandler : MonoBehaviour
         this.AnnoyedSound.Play();
         switch (this.patience)
         {
-            case 3:
+            case 6:
                 faceRenderer.material = MehFace;
                 break;
-            case 2:
+            case 4:
                 faceRenderer.material = AnnoyedFace;
                 break;
-            case 1:
+            case 2:
                 faceRenderer.material = MadFace;
                 break;
         }
@@ -101,7 +101,7 @@ public class PersonMoodHandler : MonoBehaviour
         {
             EventBroadcaster.Instance.PostEvent(EventNames.RootsFear.ON_CUSTOMER_MAD);
             this.isLeaving = true;
-            this.patience = 3;
+            this.patience = 6;
         }
     }
 
@@ -110,7 +110,7 @@ public class PersonMoodHandler : MonoBehaviour
         this.HappySound.Play();
         faceRenderer.material = HappyFace;
         this.isLeaving = true;
-        this.patience = 3;
+        this.patience = 6;
     }
 
     private void OnCollisionEnter(Collision collision)

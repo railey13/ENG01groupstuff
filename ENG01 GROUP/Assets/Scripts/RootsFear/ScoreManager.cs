@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventBroadcaster.Instance.RemoveObserver(EventNames.RootsFear.ON_ICE_FAIL);
+        EventBroadcaster.Instance.RemoveObserver(EventNames.RootsFear.ON_CUSTOMER_MAD);
         EventBroadcaster.Instance.RemoveObserver(EventNames.RootsFear.ON_ICE_SUCCESS);
     }
 
