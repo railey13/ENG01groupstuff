@@ -9,7 +9,6 @@ public class IceCubePoolable : APoolable {
     [SerializeField] private Rigidbody icecubeRB;
 
     private Vector3 originPos;
-
     private bool release = false;
 
     private int ValueChance;
@@ -19,6 +18,10 @@ public class IceCubePoolable : APoolable {
     public int IceCubeNum {
         get { return this.IceCubeValue; }
     }
+    private void Start() {
+
+    }
+
     private void Awake() {
         this.originPos = this.transform.position;
 
@@ -26,16 +29,35 @@ public class IceCubePoolable : APoolable {
     }
 
     private void ReleasePoolable() {
-        
-        this.poolRef.ReleasePoolable(this);
+        this.release = true;
     }
-    
-    public void CheckValue() {
-        if (Mathf.Sqrt(this.IceCubeNum) % 1 == 0) {
-            
-        }
-        else {
 
+    private void Update() {
+
+        if (this.release) {
+            this.poolRef.ReleasePoolable(this);
+            release = false;
+        }
+    }
+
+    public void CheckValue(string sName) {
+        Parameters param = new Parameters();
+
+        if(sName == "Knife" && Mathf.Sqrt(this.IceCubeNum) % 1 == 0) {
+            param.PutExtra(PerfectIceCubes.CONDITION, true);
+            EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.SPAWN_PERFECT_ICE, param);
+        }
+        else if(sName == "Knife" && Mathf.Sqrt(this.IceCubeNum) % 1 != 0) {
+            param.PutExtra(ImperfectIceCube.CONDITION, false);
+            EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.SPAWN_IMPERFECT_ICE, param);
+        }
+        else if(sName == "Hammer" && Mathf.Sqrt(this.IceCubeNum) % 1 == 0) {
+            param.PutExtra(ImperfectIceCube.CONDITION, false);
+            EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.SPAWN_IMPERFECT_ICE, param);
+        }
+        else if(sName == "Hammer" && Mathf.Sqrt(this.IceCubeNum) % 1 != 0) {
+            param.PutExtra(ImperfectIceCube.CONDITION, true);
+            EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.SPAWN_IMPERFECT_ICE, param);
         }
 
         this.ReleasePoolable();
@@ -46,6 +68,11 @@ public class IceCubePoolable : APoolable {
     }
 
     public override void OnActivate() {
+
+        for (int i = 1; i <= 20; i++) {
+            this.listPerfectSquares.Add((int)Math.Pow(i, 2));
+        }
+
         this.icecubeRB.transform.rotation = Quaternion.identity;
         this.transform.localPosition = this.originPos;
 
@@ -57,21 +84,16 @@ public class IceCubePoolable : APoolable {
             _canvas.GetComponentInChildren<TextMeshProUGUI>().text = this.IceCubeValue.ToString();
         }
     }
+
     public override void Release() {
-        this.icecubeRB.angularVelocity = Vector3.zero;
         this.icecubeRB.velocity = Vector3.zero;
     }
 
     private void IceCubeValueRandomizer() {
-        for (int i = 0; i < 20; i++) {
-            this.listPerfectSquares.Add((int)Math.Pow(i + 1, 2));
-        }
-
         this.ValueChance = UnityEngine.Random.Range(1, 5);
 
-        if(this.ValueChance == 1) {
-            int i = UnityEngine.Random.Range(0, this.listPerfectSquares.Count);
-            this.IceCubeValue = this.listPerfectSquares[i];
+        if (this.ValueChance == 1) {
+            this.IceCubeValue = this.listPerfectSquares[UnityEngine.Random.Range(0, this.listPerfectSquares.Count)];
         }
         else {
             this.IceCubeValue = UnityEngine.Random.Range(1, 400);
