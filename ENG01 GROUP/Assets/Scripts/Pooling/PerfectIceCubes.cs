@@ -14,6 +14,10 @@ public class PerfectIceCubes : MonoBehaviour
         this.PerfectIceCubePool.Initialize();
         EventBroadcaster.Instance.AddObserver(EventNames.PoolSample.SPAWN_PERFECT_ICE, this.RequestPoolable);
     }
+
+    private void OnDestroy() {
+        EventBroadcaster.Instance.RemoveObserver(EventNames.PoolSample.SPAWN_PERFECT_ICE);
+    }
     private void RequestPoolable(Parameters param) {
         this.condition = param.GetBoolExtra(CONDITION, false);
 
