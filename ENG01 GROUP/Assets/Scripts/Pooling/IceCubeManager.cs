@@ -17,7 +17,7 @@ public class IceCubeManager : MonoBehaviour
         yield return new WaitForSeconds(sec);
         this.RequestPoolable();
 
-        this.StartCoroutine(this.TriggerEvery(2));
+        this.StartCoroutine(this.TriggerEvery(4));
     }
 
     private void RequestPoolable() {
