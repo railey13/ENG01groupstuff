@@ -76,6 +76,9 @@ public class IceCubePoolable : APoolable {
         this.icecubeRB.transform.rotation = Quaternion.identity;
         this.transform.localPosition = this.originPos;
 
+        Vector3 force = new Vector3(0, 20, 0);
+        this.icecubeRB.AddForce(force);
+
         this.IceCubeValueRandomizer();
 
         GameObject _canvas = this.GetComponentInChildren<Canvas>().gameObject;
