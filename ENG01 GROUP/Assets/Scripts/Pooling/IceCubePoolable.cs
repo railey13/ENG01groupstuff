@@ -33,11 +33,33 @@ public class IceCubePoolable : APoolable {
     private void ReleasePoolable() {
         this.release = true;
     }
+<<<<<<< Updated upstream
 
     private void Update() {
         if (this.release) {
             this.poolRef.ReleasePoolable(this);
             release = false;
+=======
+    
+    public void CheckValue(string sName) {
+        Parameters param = new Parameters();
+
+        if(sName == "Knife" && Mathf.Sqrt(this.IceCubeNum) % 1 == 0) {
+            param.PutExtra(PerfectIceCubes.CONDITION, true);
+            EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.SPAWN_PERFECT_ICE, param);
+        }
+        else if(sName == "Knife" && Mathf.Sqrt(this.IceCubeNum) % 1 != 0) {
+            param.PutExtra(ImperfectIceCube.CONDITION, false);
+            EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.SPAWN_IMPERFECT_ICE, param);
+        }
+        else if(sName == "Hammer" && Mathf.Sqrt(this.IceCubeNum) % 1 == 0) {
+            param.PutExtra(ImperfectIceCube.CONDITION, false);
+            EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.SPAWN_IMPERFECT_ICE, param);
+        }
+        else if(sName == "Hammer" && Mathf.Sqrt(this.IceCubeNum) % 1 != 0) {
+            param.PutExtra(ImperfectIceCube.CONDITION, true);
+            EventBroadcaster.Instance.PostEvent(EventNames.PoolSample.SPAWN_IMPERFECT_ICE, param);
+>>>>>>> Stashed changes
         }
     }
 
