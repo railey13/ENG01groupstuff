@@ -25,10 +25,5 @@ public class PerfectIceCubes : MonoBehaviour
             Debug.Log("FAIL");
             EventBroadcaster.Instance.PostEvent(EventNames.RootsFear.ON_ICE_FAIL);
         }
-
-
-        //if (this.PerfectIceCubePool.HasObjectAvailable(1)) {
-        //    this.PerfectIceCubePool.RequestPoolable();
-        //}
     }
 }
