@@ -76,3 +76,5 @@ crashlytics-build.properties
 /ENG01 GROUP/Logs
 ENG01 GROUP/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
 ENG01 GROUP/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+/ENG01 GROUP/obj
+/ENG01 GROUP/ProjectSettings

@@ -184,10 +184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PB: {fileID: 6540147344709816366}
-  playerSpeed: 10
+  playerSpeed: 5
   gravity: -9.81
   groundDistance: 1
-  jumpHeight: 2
+  jumpHeight: 1
 --- !u!1 &4324186497286153161
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PB: {fileID: 4277517342199263622}
-  sensitivity: 100
+  sensitivity: 200
 --- !u!1 &7203435646205020532
 GameObject:
   m_ObjectHideFlags: 0
